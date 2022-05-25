@@ -1,0 +1,281 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.homepage .primary {
+  position: absolute;
+  margin-top: -350px;
+  right: 100px;
+  z-index: 2;
+  background-color: purple;
+
+}
+
+.homepage .signin {
+  position: absolute;
+  margin-top: -350px;
+  right: 200px;
+  z-index: 2;
+}
+
+.App hr {
+  margin-top: 60px;
+}
+
+ .card1 {
+  position:absolute;
+  margin-top: -1200px;
+  margin-left: 850px;
+}
+
+ .card2 {
+  position: absolute;
+  margin-left: 850px;
+  margin-top: -600px;
+}
+
+ .card3 {
+  position: absolute;
+  margin-top: -600px;
+  margin-left: 150px;
+}
+
+ .card4 {
+  position:absolute;
+  margin-top: -1200px;
+  margin-left: 150px;
+  width: 40px;
+}
+
+.navbar video {
+  position: absolute;
+  height: 310%;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.navbar .heading {
+  display: flex;
+  position: relative;
+  text-align: center;
+  margin-left: 30%;
+  font-family: sans-serif;
+  font-size: 100px;
+  -webkit-text-stroke: 0.3vw white;
+  text-transform: uppercase;
+}
+
+.navbar .heading::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: green;
+  -webkit-text-stroke: 0vw grey;
+  border-right: 2px solid green;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+    fill: hsl(189, 68%, 75%)
+  }
+
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+    fill: hsla(189, 68%, 75%, 0%)
+  }
+
+
+}
+
+.navbar .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 305px;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.App .content {
+  margin-top: 100px;
+}
+
+.navbar .bgimage {
+  object-fit: fill;
+  height: 100px
+}
+
+
+ .aboutUs {
+  background-color: rgb(76, 79, 176);
+  color: white;
+  margin-top: 1300px;
+}
+
+.hr .footer {
+  margin-top: 1200px;
+}
+
+.sbox {
+  margin-top: 500px;
+}
+
+.box {
+  width: 1200px;
+  background-color: white;
+  box-shadow: 0 0 20px 0 grey;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.boxd {
+  margin-top: 375px;
+  width: 1200px;
+  background-color: white;
+  box-shadow: 0 0 20px 0 grey;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+form {
+  margin: 35px;
+}
+
+.input-field {
+  width: 1100px;
+  height: 90px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid grey;
+  border-radius: 14px;
+  outline: none;
+}
+
+.card1:hover,.card2:hover,.card3:hover,.card4:hover {
+  box-shadow: 0px 3px 5px  black;
+  
+}
+
+.text{
+  margin-top: 100px;
+}
+.req .submit{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 45%;
+}
+.req .reset{
+  position: absolute;
+  margin-left: 52%;
+  margin-top: 10px;
+}
+.req .submit:hover{
+  box-shadow: 0px 5px 9px  blue;
+}
+.req .reset:hover{
+  box-shadow: 0px 5px 9px  red;
+
+}
+.filter{
+  
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 2;
+}
+.topnav{
+  overflow: hidden;
+  background-color: #e9e9e9;
+  z-index: 20;
+  margin-top: 65px;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 20;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  z-index: 20;
+}
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+  z-index: 20;
+}
+.topnav .search-container {
+  float: right;
+  z-index: 20;
+}
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  z-index: 20;
+
+}
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+
+}
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
