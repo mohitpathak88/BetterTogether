@@ -37,11 +37,16 @@ const ngoSchema = new Schema({
       type: String,
       required:true
     },
-     pin_code: {
+     pincode: {
       type: String,
       required:true
     },
-     tasks :[String],
+     requirement: {
+       type: String
+     },
+     details : {
+      type: String
+    }
 
 });
 

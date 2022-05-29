@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+        <link rel="stylesheet">
+    </head>
+
+<body>
+
+    <h1>SIGNUP NGO</h1>
+
+    <form id="reg-form">    <!--Reg Form-->
+        <input type="name" autocomplete="off" id="name" placeholder="Name" />
+        <input type="email" autocomplete="off" id="email" placeholder="Email" />
+        <input type="password" autocomplete="off" id="password" placeholder="Password" />
+        <input type="number" autocomplete="off" id="phone_number1" placeholder="Primary Phone Number" />
+        <input type="number" autocomplete="off" id="phone_number2" placeholder="Secondary Phone Number" />
+        <input type="address" autocomplete="off" id="address" placeholder="Address" />
+        <input type="city" autocomplete="off" id="city" placeholder="City" />
+        <input type="state" autocomplete="off" id="state" placeholder="State" />
+        <input type="number" autocomplete="off" id="pincode" placeholder="Pincode" />
+        <input type="submit" value="Submit Form" />
+    </form>
+
+    <script>
+        const form = document.getElementById('reg-form') 
+        form.addEventListener('submit', registerUser)   /*Whenever  a user submits, it fires a listener as registeruser */
+
+        async function registerUser(event) {
+            event.preventDefault()      /*Default behaviour of the  event is to refresh the page hence gonna prevent it */
+            const name2 = document.getElementById('name').value
+            const email2 = document.getElementById('email').value         /*Getting name, email and password */
+            const password2 = document.getElementById('password').value
+            const phone_number1 = document.getElementById('phone_number1').value
+            const phone_number2 = document.getElementById('phone_number2').value
+            const address = document.getElementById('address').value
+            const city = document.getElementById('city').value
+            const state = document.getElementById('state').value
+            const pincode = document.getElementById('pincode').value
+
+            /*Now to send the data to the backend as JSON */
+            const result = await fetch('/api/register2', {       /*Sending the data to api/register */
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'      /* As the data we are sending is the JSON */
+                },
+                body: JSON.stringify({
+                    name2,
+                    email2,
+                    password2,
+                    phone_number1,
+                    phone_number2,
+                    address,
+                    city,
+                    state,
+                    pincode
+                })
+            }).then((res) => res.json())
+            //console.log(result)     //Result variable contains what the server responds
+            if(result.status === 'ok'){
+                alert('Success')        //everything went fine
+            } else {
+                alert(result.error)
+            }
+
+        }
+        </script>
+</body>
+</html>
