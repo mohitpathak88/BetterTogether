@@ -37,7 +37,7 @@ const SignUpN = () => {
           <input type="number" class="input-field" placeholder="Phone" onChange={(e) => setFormData({...formData,phone_number1:e.target.value})}/>
           <input type="number" class="input-field" placeholder="Secondary Phone" onChange={(e) => setFormData({...formData,phone_number2:e.target.value})}/>
           <Button variant="dark"  onClick={handleClick}>Submit</Button>{' '}
-
+          <a className="accountn" href="SignInN">Already have an account?</a>
       </form>
   </div>
   </div>

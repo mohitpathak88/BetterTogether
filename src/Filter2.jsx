@@ -1,16 +1,17 @@
 import Button from 'react-bootstrap/Button';
-const Filter = () => {
+const Filter2 = () => {
     return ( 
-        <div className="filter">
+        <div className="filter2">
             <div className="topnav">
-  <a className="active" href="#home">BY NAME</a>
-  <a href="filter2">BY CITY</a>
+  <a href="/filter">BY NAME</a>
+  <a  className="active" href="">BY CITY</a>
   <div className="search-container">
     <form action="/action_page.php">
-      <input type="text" placeholder="Search by Name.." name="search"/>
+      <input type="text" placeholder="Search by City.." name="search"/>
       <button type="submit"><i className="fa fa-search"></i></button>
       <a className="change" href="/passwordD">Change Password</a>
       <Button variant="Primary" >Submit</Button>{' '}
+
     </form>
   </div>
 </div>
@@ -18,8 +19,8 @@ const Filter = () => {
 <div className="search">
   <h2>Search for the NGO where you want to donate</h2>
   </div>
-</div>
+        </div>
      );
 }
  
-export default Filter;
+export default Filter2;

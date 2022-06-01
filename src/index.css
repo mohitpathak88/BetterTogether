@@ -278,4 +278,7 @@ form {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
+  .box .accountd{
+    margin-top: 100px;
+  }
 }

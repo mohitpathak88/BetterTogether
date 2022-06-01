@@ -32,6 +32,7 @@ const Req = () => {
 </div>
 <div className="reset">
 <Button  variant="dark">Reset</Button>
+<a className="change" href="/passwordN">Change Password</a>
 </div>
 </div>
 

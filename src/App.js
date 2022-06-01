@@ -13,7 +13,9 @@ import SignInN from './SignInN';
 import SignUpT from './SignUpT';
 import Req from './Req';
 import Filter from './Filter';
-
+import Filter2 from './Filter2';
+import PasswordN from './PasswordN';
+import PasswordD from './PasswordD';
 function App() {
   const title= "Hello Donars"
   return (
@@ -42,6 +44,15 @@ function App() {
        </Route>
        <Route path="/filter">
          <Filter/>
+       </Route>
+       <Route path="/filter2">
+         <Filter2/>
+       </Route>
+       <Route path="/PasswordD">
+         <PasswordD/>
+       </Route>
+       <Route path="/PasswordN">
+         <PasswordN/>
        </Route>
      </Switch>
      

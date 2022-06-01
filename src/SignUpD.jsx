@@ -24,6 +24,7 @@ const SignUp = () => {
           <input type="email" class="input-field" placeholder=" Email" onChange={(e) => setFormData({...formData,email:e.target.value})} />
           <input type="password" class="input-field" placeholder=" Password" onChange={(e) => setFormData({...formData,password:e.target.value})} />
           <Button variant="dark" onClick={handleClick}>Submit</Button>{' '}
+          <a className='accountd' href="/SignInD">Already have a account?</a>
       </form>
   </div>
      );
