@@ -27,13 +27,16 @@ const Req = () => {
       <textarea className='text' id="w3review" name="w3review" rows="10" cols="80" placeholder='Specify Requirements'>
 
 </textarea>
+<textarea className='text2' id="w3review" name="w3review" rows="1" cols="80" placeholder='Enter Requirements'>
+
+</textarea>
 <div className="submit">
 <Button  variant="dark">Submit</Button>
 </div>
 <div className="reset">
 <Button  variant="dark">Reset</Button>
-<a className="change" href="/passwordN">Change Password</a>
 </div>
+<a className="change" href="/passwordN">Change Password</a>
 </div>
 
       

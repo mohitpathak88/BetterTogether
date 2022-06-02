@@ -27,6 +27,7 @@ const SignIn = () => {
           <input type="text" class="input-field" placeholder=" E-mail" onChange={(e) => setFormData({...formData,email2:e.target.value})} />
           <input type="password" class="input-field" placeholder=" Password" onChange={(e) => setFormData({...formData,password2:e.target.value})} />
           <Button variant="dark" onClick={handleClick}>Submit</Button>{' '}
+          
 
       </form>
   </div>

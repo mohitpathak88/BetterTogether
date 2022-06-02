@@ -263,6 +263,27 @@ form {
 .topnav .search-container button:hover {
   background: #ccc;
 }
+.text2{
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -610px;
+}
+.change{
+  position: absolute;
+  margin-top: 410px;
+  margin-left: -350px;
+}
+.accountn{
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -110px;
+}
+.accountd{
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -110px;
+}
+
 @media screen and (max-width: 600px) {
   .topnav .search-container {
     float: none;
@@ -281,4 +302,5 @@ form {
   .box .accountd{
     margin-top: 100px;
   }
+  
 }

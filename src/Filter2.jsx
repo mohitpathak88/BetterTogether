@@ -9,7 +9,7 @@ const Filter2 = () => {
     <form action="/action_page.php">
       <input type="text" placeholder="Search by City.." name="search"/>
       <button type="submit"><i className="fa fa-search"></i></button>
-      <a className="change" href="/passwordD">Change Password</a>
+      <a className="password" href="/passwordD">Change Password</a>
       <Button variant="Primary" >Submit</Button>{' '}
 
     </form>
