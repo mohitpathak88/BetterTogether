@@ -48,6 +48,7 @@ const Home = () => {
      <h2><b><u>About Us</u></b></h2>
      <p>We are a NGO web portal which will help bringing maximum NGOs together so that people</p><br />
      <p>can donate to people who are in need and help india to grow.</p>
+     <a  className='abcol' href="/AboutUs" >Know more</a>
      </div>
      </div>
         </div>

@@ -3,7 +3,7 @@ const Filter2 = () => {
     return ( 
         <div className="filter2">
             <div className="topnav">
-  <a href="/filter">BY NAME</a>
+  <a href="/filter">BY PINCODE</a>
   <a  className="active" href="">BY CITY</a>
   <div className="search-container">
     <form action="/action_page.php">

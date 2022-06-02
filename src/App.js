@@ -16,6 +16,7 @@ import Filter from './Filter';
 import Filter2 from './Filter2';
 import PasswordN from './PasswordN';
 import PasswordD from './PasswordD';
+import AboutUs from './AboutUs';
 function App() {
   const title= "Hello Donars"
   return (
@@ -53,6 +54,9 @@ function App() {
        </Route>
        <Route path="/PasswordN">
          <PasswordN/>
+       </Route>
+       <Route path="/aboutus">
+         <AboutUs/>
        </Route>
      </Switch>
      
