@@ -173,7 +173,7 @@ app.post('/api/login2',  async (req, res) => {
             },  
             JWT_SECRET      //Secret Key defined above
         )
-        return res.json({ status: 'ok' })          //data would be the token
+        return res.json({ status: 'ok', data: token })          //data would be the token
     }
     res.json({ status: 'error', error: "Invalid email/password!"})
 }) 
@@ -234,7 +234,7 @@ app.get('/changepasswordngo', (req, res) => {
 app.post('/api/change-password2', async (req, res) => {
     //To check only the logged in user can change the password:
     const { token, newpassword2: plainTextPassword } = req.body      //Receiving the current token present in body
-    console.log(plainTextPassword);
+    //console.log(plainTextPassword);
     if(!plainTextPassword || typeof plainTextPassword !== 'string') {
         return res.json({ status: 'error', error: 'Invalid Password' })
     }
@@ -243,13 +243,13 @@ app.post('/api/change-password2', async (req, res) => {
     }
 
     try {
-        const user2 = jwt.verify(token, JWT_SECRET)      //Both the two arguments verify and decode the user
-        const _id2 = user2.id
-        console.log(_id2);
-        console.log(email2);
+        const user = jwt.verify(token, JWT_SECRET)      //Both the two arguments verify and decode the user
+        const _id = user.id
+        //console.log(_id2);
+        //console.log(email2);
         const password2 = await bcrypt.hash(plainTextPassword, 10)
         await User1.updateOne(
-            { _id2 },
+            { _id },
             {
                 $set: {password2}
             }
@@ -258,10 +258,74 @@ app.post('/api/change-password2', async (req, res) => {
 
     } catch (error) {
         res.json({ status: 'error', error: ';))'})
+        console.log(error)
     }
 })
+
+
 
 app.get('/req', (req, res) => {
     res.render('createRequestNgo');
 });
-app.post('/ngo', (req, res) => {})
+
+app.post('/api/request', async (req, res) => {
+    const { requirement, details, token} = req.body      //Receiving the current token present in body
+
+    try {
+        const user = jwt.verify(token, JWT_SECRET)      //Both the two arguments verify and decode the user
+        const _id = user.id
+    
+        await User1.updateOne(
+            { _id },
+            {
+                requirement: requirement,
+                details: details
+            }
+        )
+        res.json({ status: 'ok' })
+
+    } catch (error) {
+        res.json({ status: 'error', error: 'Error'})
+    }
+})
+
+
+app.get('/filter1', (req, res) => {
+    res.render('searchByPincode');
+});
+
+app.post('/api/search-ngo1', async (req, res) => {
+    const { pincode } = req.body
+    const user =  await User1.find({ pincode : pincode });
+    console.log(user);
+           //.lean() return only the simple JSON representation of the document 
+    // console.log(data);
+    //If pincode not found
+    if (!user) {
+        return res.json({ status: 'error', error: "No NGos in this pincode!"})
+    }
+    else{
+        return res.json({ status: 'ok', user})
+    }
+    
+})
+
+app.get('/filter2', (req, res) => {
+    res.render('searchByCity');
+});
+
+app.post('/api/search-ngo2', async (req, res) => {
+    const { city } = req.body
+    const user =  await User1.find({ city : city });
+    console.log(user);
+           //.lean() return only the simple JSON representation of the document 
+    // console.log(data);
+    //If pincode not found
+    if (!user) {
+        return res.json({ status: 'error', error: "No NGos in this city!"})
+    }
+    else{
+        return res.json({ status: 'ok', user})
+    }
+    
+})
