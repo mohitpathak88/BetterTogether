@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Filter2</title>
+        <link rel="stylesheet">
+    </head>
+
+<body>
+
+    <h1>Search NGOs:</h1>
+
+    <form id="search-form">
+        <input type="word" autocomplete="off" id="city" placeholder="City" />
+        <input type="submit" value="Submit Form" />
+    </form>
+
+    <script>
+        const form = document.getElementById('search-form') 
+        form.addEventListener('submit', searchNgo)   /*Whenever  a user submits, it fires a listener as registeruser */
+
+        async function searchNgo(event) {
+            event.preventDefault()      /*Default behaviour of the  event is to refresh the page hence gonna prevent it */
+            const city = document.getElementById('city').value
+
+            /*Now to send the data to the backend as JSON */
+            const result = await fetch('/api/search-ngo2', {       /*Sending the data to api/register */
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'      /* As the data we are sending is the JSON */
+                },
+                body: JSON.stringify({
+                    city
+                })
+            }).then((res) => res.json())
+            // console.log(result)     //Result variable contains what the server responds
+            if(result.status === 'ok'){
+                for(let index = 0; index < result.user.length; index++){
+                    console.log(result.user[index].name2);
+                }
+                //console.log('NGO: ', result.data)
+                alert('Success')        //everything went fine
+            } else {
+                alert(result.error)
+            }
+
+        }
+        </script>
+</body>
+</html>

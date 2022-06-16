@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ngo Details</title>
+        <link rel="stylesheet">
+    </head>
+
+<body>
+
+    <h1>Ngo Details</h1>
+
+    <form id="req-form">
+        <input type="text" autocomplete="off" id="requirement" placeholder="Requirement" />
+        <input type="text" autocomplete="off" id="details" placeholder="Enter Details:" />
+        <input type="submit" value="Submit Form" />
+    </form>
+
+    <script>
+        const form = document.getElementById('req-form') 
+        form.addEventListener('submit', requestNgo)   /*Whenever  a user submits, it fires a listener as registeruser */
+
+        async function requestNgo(event) {
+            event.preventDefault()      /*Default behaviour of the  event is to refresh the page hence gonna prevent it */
+            const requirement = document.getElementById('requirement').value         /*Getting name, email and password */
+            const details = document.getElementById('details').value
+
+            /*Now to send the data to the backend as JSON */
+            const result = await fetch('/api/request', {       /*Sending the data to api/register */
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'      /* As the data we are sending is the JSON */
+                },
+                body: JSON.stringify({
+                    requirement,
+                    details,
+                    token: localStorage.getItem('token')
+                })
+            }).then((res) => res.json())
+            //console.log(result)     //Result variable contains what the server responds
+            if(result.status === 'ok'){
+                alert('Success')        //everything went fine
+            } else {
+                alert(result.error)
+            }
+
+        }
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+<!--
+
+  <div class="create-blog content">
+    <form action="/ngo" method="POST">  <!--Action attribute which is basically a value of where we have to send below data to, i.e. "blogs"
+      <label for="requirement">Requirement:</label>
+      <input type="text" id="title" name="requirement" required>
+
+      <label for="details">Enter Details:</label>
+      <textarea id="details" name="details" required></textarea>
+      <button>Submit</button>
+    </form>
+  </div> 
+</body>
+</html>
+-->

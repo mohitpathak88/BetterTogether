@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet">
+    </head>
+
+<body>
+
+    <h1>Login</h1>
+
+    <form id="login">
+        <input type="email" autocomplete="off" id="email" placeholder="Email" />
+        <input type="password" autocomplete="off" id="password" placeholder="Password" />
+        <input type="submit" value="Submit Form" />
+    </form>
+
+    <script>
+        const form = document.getElementById('login') 
+        form.addEventListener('submit', login)   /*Whenever  a user submits, it fires a listener as login */
+    
+        async function login(event) {
+            event.preventDefault()      /*Default behaviour of the  event is to refresh the page hence gonna prevent it */
+            const email = document.getElementById('email').value         /*Getting email and password */
+            const password = document.getElementById('password').value
+    
+            /*Now to send the data to the backend as JSON */
+            const result = await fetch('/api/login', {       /*Sending the data to api/login */
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'      /* As the data we are sending is the JSON */
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            }).then((res) => res.json())
+            //console.log(result)     //Result variable contains what the server responds
+            if(result.status === 'ok'){
+                console.log('Got the token: ', result.data)
+                localStorage.setItem('token', result.data)      //Storing the token in local storage so that it persist on refreshes also
+                alert('Success')        //everything went fine
+            } else {
+                alert(result.error)
+            }
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGOs</title>
+   <!-- <link rel="stylesheet" href="/styles.css">     //  STYLING REQUIRED-->
+</head>
+<body>
+  <div class="blogs content">
+    <h2>All NGOs</h2>     
+    <!--We have access to every part of the blog including the id in ind   -->
+    <% if (NGOs.length > 0) { %>
+       <% NGOs.forEach(NGO => { %>
+         <h3 class="title"><%= NGO.title %></h3>
+         <p class="snippet"><%= NGO.snippet %></p>
+         <h4 class="body"><%= NGO.body %></h4>
+       <% }) %>
+       </a>
+     <% } else { %>
+       <p>There are no NGOs to display...</p>
+     <% } %>
+   </div>
+  
+</body>
+</html>
