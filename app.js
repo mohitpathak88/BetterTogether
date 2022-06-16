@@ -327,5 +327,5 @@ app.post('/api/search-ngo2', async (req, res) => {
     else{
         return res.json({ status: 'ok', user})
     }
-  
+
 })
